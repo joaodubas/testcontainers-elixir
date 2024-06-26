@@ -61,24 +61,24 @@ defmodule TestcontainersElixir.MixProject do
     [
       {:elixir_uuid, "~> 1.2"},
       {:dialyxir, "~> 1.3", only: [:dev], runtime: false},
-      {:ex_doc, "~> 0.30", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.34", only: :dev, runtime: false},
       # docker api
       {:ex_docker_engine_api, "~> 1.43.1"},
       # ecto module
-      {:ecto_sql, "~> 3.3", optional: true},
-      {:ecto, "~> 3.3", optional: true},
+      {:ecto_sql, "~> 3.11", optional: true},
+      {:ecto, "~> 3.11", optional: true},
       # mysql
-      {:myxql, "~> 0.4", only: [:dev, :test]},
+      {:myxql, "~> 0.7", only: [:dev, :test]},
       # postgres
-      {:postgrex, "~> 0.14", only: [:dev, :test]},
+      {:postgrex, "~> 0.18", only: [:dev, :test]},
       # redis
-      {:redix, "~> 1.0", only: [:dev, :test]},
+      {:redix, "~> 1.5", only: [:dev, :test]},
       # ceph and minio
-      {:ex_aws, "~> 2.1", only: [:dev, :test]},
-      {:ex_aws_s3, "~> 2.0", only: [:dev, :test]},
+      {:ex_aws, "~> 2.5", only: [:dev, :test]},
+      {:ex_aws_s3, "~> 2.5", only: [:dev, :test]},
       {:sweet_xml, "~> 0.6", only: [:dev, :test]},
       # cassandra
-      {:xandra, "~> 0.14", only: [:dev, :test]},
+      {:xandra, "~> 0.19", only: [:dev, :test]},
       # kafka
       {:kafka_ex, "~> 0.13", only: [:dev, :test]},
       # Zookeeper
