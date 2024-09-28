@@ -2,9 +2,10 @@
 
 [![Hex.pm](https://img.shields.io/hexpm/v/testcontainers.svg)](https://hex.pm/packages/testcontainers)
 
-> Testcontainers is an Elixir library that supports ExUnit tests, providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.
+> Testcontainers is an `Elixir` library that supports `ExUnit` tests, providing lightweight, throwaway instances of common databases, `Selenium` web browsers, or anything else that can run in a `Docker` container.
 
 ## Table of Contents
+
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -16,13 +17,14 @@
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
+
 - You have installed the latest version of [Elixir](https://elixir-lang.org/install.html)
-- You have a Docker runtime installed
-- You are familiar with Elixir and Docker basics
+- You have a `Docker` runtime installed
+- You are familiar with `Elixir` and Docker basics
 
 ## Installation
 
-To add Testcontainers to your project, follow these steps:
+To add `Testcontainers` to your project, follow these steps:
 
 1. Add `testcontainers` to your list of dependencies in `mix.exs`:
 
@@ -34,9 +36,9 @@ def deps do
 end
 ```
 
-2. Run mix deps.get
+2. Run `mix deps.get`
 
-3. Add the following to test/test_helper.exs
+3. Add the following to `test/test_helper.exs`
 
 ```elixir
 Testcontainers.start_link()
@@ -44,7 +46,7 @@ Testcontainers.start_link()
 
 ## Usage
 
-This section explains how to use the Testcontainers library in your own project.
+This section explains how to use the `Testcontainers` library in your own project.
 
 ### Basic usage
 
@@ -75,9 +77,9 @@ config =
 {:ok, container} = Testcontainers.start_container(config)
 ```
 
-### ExUnit tests
+### `ExUnit` tests
 
-Given you have added Testcontainers.start_link() to test_helper.exs:
+Given you have added `Testcontainers.start_link()` to `test_helper.exs`:
 
 ```elixir
 setup 
@@ -96,19 +98,21 @@ import Testcontainers.ExUnit
 container(:redis, Testcontainers.RedisContainer.new())
 ```
 
-### Run tests in a Phoenix project (or any project for that matter)
+### Run tests in a `Phoenix` project (or any project for that matter)
 
-To run/wrap testcontainers around a project use the testcontainers.test task.
+To run/wrap `testcontainers` around a project use the `testcontainers.test` task.
 
-`mix testcontainers.test [--database postgres|mysql]`
-
-to use postgres you can just run
-
-`mix testcontainers.test` since postgres is default.
-
-in your config/test.exs you can then change the repo config to this:
-
+```bash
+mix testcontainers.test [--database postgres|mysql]
 ```
+
+to use `postgres` you can just run
+
+`mix testcontainers.test` since `postgres` is default.
+
+in your `config/test.exs` you can then change the repo config to this:
+
+```elixir
 config :my_app, MyApp.Repo,
   username: System.get_env("DB_USER") || "postgres",
   password: System.get_env("DB_PASSWORD") || "postgres",
@@ -121,7 +125,7 @@ config :my_app, MyApp.Repo,
 
 ### Logging
 
-By default, Testcontainers doesn't log anything. If you want Testcontainers to log, set the desired log level in config/test.exs:
+By default, `Testcontainers` doesn't log anything. If you want `Testcontainers` to log, set the desired log level in `config/test.exs`:
 
 ```elixir
 # config/test.exs
@@ -142,7 +146,7 @@ We welcome your contributions! Please see our contributing guidelines (TBD) for 
 
 ## License
 
-Testcontainers is available under the MIT license. See the LICENSE file for more info.
+`Testcontainers` is available under the MIT license. See the LICENSE file for more info.
 
 ## Contact
 
@@ -150,4 +154,4 @@ If you have any questions, issues, or want to contribute, feel free to contact u
 
 ---
 
-Thank you for using Testcontainers to test your Elixir applications!
+Thank you for using `Testcontainers` to test your `Elixir` applications!
