@@ -38,12 +38,12 @@ defmodule HelloWeb do
 
   def controller do
     quote do
+      use Gettext, backend: HelloWeb.Gettext
       use Phoenix.Controller,
         formats: [:html, :json],
         layouts: [html: HelloWeb.Layouts]
 
       import Plug.Conn
-      import HelloWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -81,11 +81,12 @@ defmodule HelloWeb do
 
   defp html_helpers do
     quote do
+      use Gettext, backend: HelloWeb.Gettext
+
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
       import HelloWeb.CoreComponents
-      import HelloWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
