@@ -6,6 +6,24 @@ defmodule Testcontainers.Container do
   A struct with builder functions for creating a definition of a container.
   """
 
+  @type t :: %__MODULE__{
+          image: String.t(),
+          cmd: [String.t()] | nil,
+          environment: %{optional(term()) => String.t()},
+          auth: String.t() | nil,
+          exposed_ports: [pos_integer() | {pos_integer(), pos_integer()}],
+          ip_address: String.t() | nil,
+          wait_strategies: [struct()],
+          privileged: boolean(),
+          bind_mounts: [%{host_src: String.t(), container_dest: String.t(), options: String.t()}],
+          bind_volumes: [%{volume: String.t(), container_dest: String.t(), read_only: boolean()}],
+          labels: %{optional(String.t()) => String.t()},
+          auto_remove: boolean(),
+          container_id: String.t() | nil,
+          check_image: Regex.t(),
+          network_mode: String.t() | nil
+        }
+
   @enforce_keys [:image]
   defstruct [
     :image,
